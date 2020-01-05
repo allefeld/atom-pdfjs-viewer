@@ -2,9 +2,9 @@
   "name": "pdfjs-viewer",
   "main": "./lib/pdfjs-viewer",
   "version": "0.0.0",
-  "description": "A short description of your package",
+  "description": "Themed, fully featured PDF viewer for the Atom editor",
   "keywords": [],
-  "repository": "https://github.com/atom/pdfjs-viewer",
+  "repository": "https://github.com/allefeld/atom-pdfjs-viewer",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
