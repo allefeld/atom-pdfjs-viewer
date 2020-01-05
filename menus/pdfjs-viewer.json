@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle pdfjs-viewer",
+        "command": "pdfjs-viewer:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "pdfjs-viewer",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "pdfjs-viewer:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

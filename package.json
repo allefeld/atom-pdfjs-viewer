@@ -1,0 +1,19 @@
+{
+  "name": "pdfjs-viewer",
+  "main": "./lib/pdfjs-viewer",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "keywords": [],
+  "repository": "https://github.com/atom/pdfjs-viewer",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "path": ">=0.12.7",
+    "@fortawesome/fontawesome-free": "5.11.2"
+  },
+  "deserializers": {
+    "PdfjsViewerView": "deserializeView"
+  }
+}
