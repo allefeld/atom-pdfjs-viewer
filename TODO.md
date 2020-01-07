@@ -1,8 +1,5 @@
 # todo
 
--   polish SyncTeX support,
-    avoid unnecessary calls if there is no synctex file.
-
 -   fix weird problem with moving pane split  
     maybe mouse events are lost in iframe?
     
