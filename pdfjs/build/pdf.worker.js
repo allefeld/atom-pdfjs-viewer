@@ -1,4 +1,8 @@
 /**
+ * This file is a copy of original_pdf.worker.js
+ * modified by Carsten Allefeld 2020.
+ * 
+ * Notice from the original file:
  * @licstart The following is the entire license notice for the
  * Javascript code in this page
  *
@@ -1751,7 +1755,7 @@ function _isValidProtocol(url) {
     case 'ftp:':
     case 'mailto:':
     case 'tel:':
-    case 'file:':
+    case 'file:':		// CA: enable links with file: URLS
       return true;
 
     default:

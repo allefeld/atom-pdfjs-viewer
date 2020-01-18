@@ -1,4 +1,8 @@
 /**
+ * This file is a copy of original_viewer.js
+ * modified by Carsten Allefeld 2020.
+ * 
+ * Notice from the original file:
  * @licstart The following is the entire license notice for the
  * Javascript code in this page
  *
@@ -1775,6 +1779,19 @@ var validateFileURL;
   var HOSTED_VIEWER_ORIGINS = ['null', 'http://mozilla.github.io', 'https://mozilla.github.io'];
 
   validateFileURL = function validateFileURL(file) {
+    // CA make URL validation dependent on package setting
+    //   are we really in an iframe?
+    if (window.frameElement) {
+      // if yes, get the atom object from the enclosing window
+      const atom = window.frameElement.ownerDocument.defaultView.atom
+      // get the disableValidation setting
+      const disableValidation = atom.config.get('pdfjs-viewer.disableValidation')
+      // if validation is disabled, simply return now
+      if (disableValidation) {
+        return
+      }
+    }
+    // CA
     if (file === undefined) {
       return;
     }

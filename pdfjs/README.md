@@ -5,6 +5,7 @@ Modified files:
     build/pdf.js 
     build/pdf.worker.js
     web/viewer.html
+    web/viewer.js
     
 The corresponding original files have been renamed with the prefix `original_`.
 
