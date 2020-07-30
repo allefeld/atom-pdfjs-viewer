@@ -12,7 +12,8 @@
   "dependencies": {
     "path": ">=0.12.7",
     "@fortawesome/fontawesome-free": "5.11.2",
-    "chokidar": ">=3.3.0"
+    "chokidar": ">=3.3.0",
+    "fs-extra": ">=8.1.0 <9.0.0"
   },
   "deserializers": {
     "PdfjsViewerView": "deserializeView"
