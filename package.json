@@ -1,7 +1,7 @@
 {
   "name": "pdfjs-viewer",
   "main": "./lib/pdfjs-viewer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Themed, fully featured PDF viewer for the Atom editor",
   "keywords": [],
   "repository": "https://github.com/allefeld/atom-pdfjs-viewer",
