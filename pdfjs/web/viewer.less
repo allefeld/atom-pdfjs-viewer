@@ -17,7 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /* This stylesheet is intended for viewer.html.
  *   In order to make Atom theme variables usable, it is written in LESS.
  * However, since Atom's styles do not apply to the iframe containing
@@ -29,8 +29,6 @@
 
 // make Atom theme variables accessible
 @import "ui-variables";
-// make Atom's .scrollbars-visible-always accessible, used as a LESS mixin
-@import "atom";
 // make icon font accessible
 @ifp: "../../node_modules/@fortawesome/fontawesome-free";
 @font-face {
@@ -601,8 +599,21 @@ select {
   width: 100%;
   height: 100%;
   position: relative;
-  .scrollbars-visible-always(); // for Atom's scrollbar style
 }
+// Trying to emulate Atom's .scrollbars-visible-always();
+#outerContainer ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+#outerContainer ::-webkit-scrollbar-track,
+#outerContainer ::-webkit-scrollbar-corner {
+  background: @scrollbar-background-color;
+}
+#outerContainer ::-webkit-scrollbar-thumb {
+  background: @scrollbar-color;
+  border-radius: 5px;
+}
+
 
 #sidebarContainer {
   position: absolute;
@@ -2005,7 +2016,7 @@ html[dir='rtl'] .outlineItemToggler::before {
   font-size: 12px;
   line-height: 14px;
   // but keep overlay dialog opaque
-  opacity: 1;	
+  opacity: 1;
   background-color: @inset-panel-background-color;  //COLOR
   // background-image: url(images/texture.png),
   //                   linear-gradient(hsla(0,0%,32%,.99), hsla(0,0%,27%,.95));
@@ -2210,181 +2221,181 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
 //     transform: scale(0.5);
 //     top: -5px;
 //   }
-// 
+//
 //   .secondaryToolbarButton::before {
 //     transform: scale(0.5);
 //     top: -4px;
 //   }
-// 
+//
 //   html[dir='ltr'] .toolbarButton::before,
 //   html[dir='rtl'] .toolbarButton::before {
 //     left: -1px;
 //   }
-// 
+//
 //   html[dir='ltr'] .secondaryToolbarButton::before {
 //     left: -2px;
 //   }
 //   html[dir='rtl'] .secondaryToolbarButton::before {
 //     left: 186px;
 //   }
-// 
+//
 //   .toolbarField.pageNumber.visiblePageIsLoading,
 //   #findInput[data-status="pending"] {
 //     background-image: url(images/loading-small@2x.png);
 //     background-size: 16px 17px;
 //   }
-// 
+//
 //   .dropdownToolbarButton {
 //     background: url(images/toolbarButton-menuArrows@2x.png) no-repeat;
 //     background-size: 7px 16px;
 //   }
-// 
+//
 //   html[dir='ltr'] .toolbarButton#sidebarToggle::before {
 //     content: url(images/toolbarButton-sidebarToggle@2x.png);
 //   }
 //   html[dir='rtl'] .toolbarButton#sidebarToggle::before {
 //     content: url(images/toolbarButton-sidebarToggle-rtl@2x.png);
 //   }
-// 
+//
 //   html[dir='ltr'] .toolbarButton#secondaryToolbarToggle::before {
 //     content: url(images/toolbarButton-secondaryToolbarToggle@2x.png);
 //   }
 //   html[dir='rtl'] .toolbarButton#secondaryToolbarToggle::before {
 //     content: url(images/toolbarButton-secondaryToolbarToggle-rtl@2x.png);
 //   }
-// 
+//
 //   html[dir='ltr'] .toolbarButton.findPrevious::before {
 //     content: url(images/findbarButton-previous@2x.png);
 //   }
 //   html[dir='rtl'] .toolbarButton.findPrevious::before {
 //     content: url(images/findbarButton-previous-rtl@2x.png);
 //   }
-// 
+//
 //   html[dir='ltr'] .toolbarButton.findNext::before {
 //     content: url(images/findbarButton-next@2x.png);
 //   }
 //   html[dir='rtl'] .toolbarButton.findNext::before {
 //     content: url(images/findbarButton-next-rtl@2x.png);
 //   }
-// 
+//
 //   html[dir='ltr'] .toolbarButton.pageUp::before {
 //     content: url(images/toolbarButton-pageUp@2x.png);
 //   }
 //   html[dir='rtl'] .toolbarButton.pageUp::before {
 //     content: url(images/toolbarButton-pageUp-rtl@2x.png);
 //   }
-// 
+//
 //   html[dir='ltr'] .toolbarButton.pageDown::before {
 //     content: url(images/toolbarButton-pageDown@2x.png);
 //   }
 //   html[dir='rtl'] .toolbarButton.pageDown::before {
 //     content: url(images/toolbarButton-pageDown-rtl@2x.png);
 //   }
-// 
+//
 //   .toolbarButton.zoomIn::before {
 //     content: url(images/toolbarButton-zoomIn@2x.png);
 //   }
-// 
+//
 //   .toolbarButton.zoomOut::before {
 //     content: url(images/toolbarButton-zoomOut@2x.png);
 //   }
-// 
+//
 //   .toolbarButton.presentationMode::before,
 //   .secondaryToolbarButton.presentationMode::before {
 //     content: url(images/toolbarButton-presentationMode@2x.png);
 //   }
-// 
+//
 //   .toolbarButton.print::before,
 //   .secondaryToolbarButton.print::before {
 //     content: url(images/toolbarButton-print@2x.png);
 //   }
-// 
+//
 //   .toolbarButton.openFile::before,
 //   .secondaryToolbarButton.openFile::before {
 //     content: url(images/toolbarButton-openFile@2x.png);
 //   }
-// 
+//
 //   .toolbarButton.download::before,
 //   .secondaryToolbarButton.download::before {
 //     content: url(images/toolbarButton-download@2x.png);
 //   }
-// 
+//
 //   .toolbarButton.bookmark::before,
 //   .secondaryToolbarButton.bookmark::before {
 //     content: url(images/toolbarButton-bookmark@2x.png);
 //   }
-// 
+//
 //   #viewThumbnail.toolbarButton::before {
 //     content: url(images/toolbarButton-viewThumbnail@2x.png);
 //   }
-// 
+//
 //   html[dir="ltr"] #viewOutline.toolbarButton::before {
 //     content: url(images/toolbarButton-viewOutline@2x.png);
 //   }
 //   html[dir="rtl"] #viewOutline.toolbarButton::before {
 //     content: url(images/toolbarButton-viewOutline-rtl@2x.png);
 //   }
-// 
+//
 //   #viewAttachments.toolbarButton::before {
 //     content: url(images/toolbarButton-viewAttachments@2x.png);
 //   }
-// 
+//
 //   #viewFind.toolbarButton::before {
 //     content: url(images/toolbarButton-search@2x.png);
 //   }
-// 
+//
 //   .secondaryToolbarButton.firstPage::before {
 //     content: url(images/secondaryToolbarButton-firstPage@2x.png);
 //   }
-// 
+//
 //   .secondaryToolbarButton.lastPage::before {
 //     content: url(images/secondaryToolbarButton-lastPage@2x.png);
 //   }
-// 
+//
 //   .secondaryToolbarButton.rotateCcw::before {
 //     content: url(images/secondaryToolbarButton-rotateCcw@2x.png);
 //   }
-// 
+//
 //   .secondaryToolbarButton.rotateCw::before {
 //     content: url(images/secondaryToolbarButton-rotateCw@2x.png);
 //   }
-// 
+//
 //   .secondaryToolbarButton.selectTool::before {
 //     content: url(images/secondaryToolbarButton-selectTool@2x.png);
 //   }
-// 
+//
 //   .secondaryToolbarButton.handTool::before {
 //     content: url(images/secondaryToolbarButton-handTool@2x.png);
 //   }
-// 
+//
 //   .secondaryToolbarButton.scrollVertical::before {
 //     content: url(images/secondaryToolbarButton-scrollVertical@2x.png);
 //   }
-// 
+//
 //   .secondaryToolbarButton.scrollHorizontal::before {
 //     content: url(images/secondaryToolbarButton-scrollHorizontal@2x.png);
 //   }
-// 
+//
 //   .secondaryToolbarButton.scrollWrapped::before {
 //     content: url(images/secondaryToolbarButton-scrollWrapped@2x.png);
 //   }
-// 
+//
 //   .secondaryToolbarButton.spreadNone::before {
 //     content: url(images/secondaryToolbarButton-spreadNone@2x.png);
 //   }
-// 
+//
 //   .secondaryToolbarButton.spreadOdd::before {
 //     content: url(images/secondaryToolbarButton-spreadOdd@2x.png);
 //   }
-// 
+//
 //   .secondaryToolbarButton.spreadEven::before {
 //     content: url(images/secondaryToolbarButton-spreadEven@2x.png);
 //   }
-// 
+//
 //   .secondaryToolbarButton.documentProperties::before {
 //     content: url(images/secondaryToolbarButton-documentProperties@2x.png);
 //   }
-// 
+//
 //   .outlineItemToggler::before {
 //     transform: scale(0.5);
 //     top: -1px;
@@ -2410,7 +2421,7 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
 //   body {
 //     background: transparent none;
 //   }
-// 
+//
 //   /* Rules for browsers that don't support mozPrintCallback. */
 //   #sidebarContainer, #secondaryToolbar, .toolbar, #loadingBox, #errorWrapper, .textLayer {
 //     display: none;
@@ -2418,13 +2429,13 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
 //   #viewerContainer {
 //     overflow: visible;
 //   }
-// 
+//
 //   #mainContainer, #viewerContainer, .page, .page canvas {
 //     position: static;
 //     padding: 0;
 //     margin: 0;
 //   }
-// 
+//
 //   .page {
 //     float: left;
 //     display: none;
@@ -2433,15 +2444,15 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
 //     background-clip: content-box;
 //     background-color: white;
 //   }
-// 
+//
 //   .page[data-loaded] {
 //     display: block;
 //   }
-// 
+//
 //   .fileInput {
 //     display: none;
 //   }
-// 
+//
 //   /* Rules for browsers that support PDF.js printing */
 //   body[data-pdfjsprinting] #outerContainer {
 //     display: none;
